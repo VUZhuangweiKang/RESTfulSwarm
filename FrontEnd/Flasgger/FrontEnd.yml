@@ -1,0 +1,122 @@
+---
+parameters:
+  - name: job_info
+    in: body
+    description: Job information including resources schedule decision conducted by job manager.
+    required: true
+    schema:
+      $ref: '#/definitions/JobInfo'
+
+definitions:
+  JobInfo:
+    type: object
+    properties:
+      job_name:
+        type: string
+      job_info:
+        type: object
+        properties:
+          network:
+            schema:
+              $ref: '#/definitions/Network'
+          tasks:
+            type: object
+            example: {
+                "task1": {
+                  "container_name": "job1_task1",
+                  "node": "",
+                  "image": "task1 image",
+                  "detach": true,
+                  "command": "",
+                  "cpu_count": 3,
+                  "cpuset_cpus": "",
+                  "mem_limit": "10m",
+                  "ports": {"3000/tcp": 3000},
+                  "volumes": {},
+                  "environment": {},
+                  "status": "Ready"
+                },
+                "task2": {
+                  "container_name": "job1_task2",
+                  "node": "",
+                  "image": "task2 image",
+                  "detach": true,
+                  "command": "python SubscribeData.py -a 10.52.3.255 -p 3000",
+                  "cpu_count": 2,
+                  "cpuset_cpus": "",
+                  "mem_limit": "10m",
+                  "ports": {},
+                  "volumes": {},
+                  "environment": {},
+                  "status": "Ready"
+                }
+            }
+      status:
+        type: string
+        enum: ['Ready','Deployed']
+      start_time:
+        type: number
+      end_time:
+        type: number
+
+  Network:
+    type: object
+    properties:
+      name:
+        type: string
+      driver:
+        type: string
+        enum: ['overlay', 'weaveworks/net-plugin:latest_release']
+      subnet:
+        type: string
+    example: {
+      "name": "kangNetwork",
+      "driver": "weaveworks/net-plugin:latest_release",
+      "subnet": "10.52.0.34/24"
+    }
+
+  TaskDetail:
+    type: object
+    properties:
+      "container_name":
+        type: string
+        example: "job1_task1"
+      "node":
+        type: string
+      "image":
+        type: string
+      "detach":
+        type: boolean
+      "command":
+        type: string
+      "cpu_count":
+        type: integer
+      "cpuset_cpus":
+        type: string
+      "mem_limit":
+        type: string
+        example: "10m"
+      "ports":
+        type: object
+        example: {"3000/tcp": 3000}
+      "volumes":
+        type: object
+        example: {}
+      "environment":
+        type: object
+        example: {}
+      "status":
+        type: string
+        enum: [Ready, Deployed, Down]
+
+responses:
+  200:
+    description: OK
+    schema:
+      type: string
+      example: Job has been submitted to launch.
+  400:
+    description: Bad request
+    schema:
+      type: string
+      example: Submitted Job info has error.

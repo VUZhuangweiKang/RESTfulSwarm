@@ -1,0 +1,17 @@
+{
+  "job": "kang",
+  "container": "job1_task1",
+  "from": "10.52.0.136",
+  "to": "10.52.0.132",
+  "info": {
+    "container_name": "job1_task1",
+    "image": "zhuangweikang/publisher",
+    "detach": true,
+    "network": "kangNetwork",
+    "command": "",
+    "cpuset_cpus": "0,1",
+    "mem_limit": "10m",
+    "ports": {},
+    "volumes": {}
+  }
+}

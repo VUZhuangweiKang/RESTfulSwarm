@@ -1,0 +1,54 @@
+---
+parameters:
+- name: container_info
+  in: body
+  description: Similar to a task, but scheduler doesn't apply scheduling algorithm on it.
+  schema:
+    $ref: '#/definitions/TaskDetail'
+
+definitions:
+  TaskDetail:
+      type: object
+      properties:
+        "container_name":
+          type: string
+          example: "job1_task1"
+        "node":
+          type: string
+        "image":
+          type: string
+        "detach":
+          type: boolean
+        "command":
+          type: string
+        "cpu_count":
+          type: integer
+        "cpuset_cpus":
+          type: string
+        "mem_limit":
+          type: string
+          example: "10m"
+        "ports":
+          type: object
+          example: {"3000/tcp": 3000}
+        "volumes":
+          type: object
+          example: {}
+        "environment":
+          type: object
+          example: {}
+        "status":
+          type: string
+          enum: [Ready, Deployed, Down]
+
+responses:
+  200:
+    description: OK
+    schema:
+      type: string
+      example: Container has been submitted to launch.
+  400:
+    description: Bad request
+    schema:
+      type: string
+      example: Container information has error.

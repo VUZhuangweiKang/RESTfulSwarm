@@ -1,0 +1,33 @@
+---
+parameters:
+  - name: nc_del
+    in: body
+    description: Delete root queue in egress
+    required: true
+    schema:
+      $ref: '#/definitions/Del'
+
+definitions:
+  Del:
+    type: object
+    properties:
+      address:
+        type: string
+      usr:
+        type: string
+      pkey:
+        type: string
+        description: private key
+      network_device:
+        type: string
+        description: network device
+
+responses:
+  200:
+    description: OK
+    schema:
+      type: string
+  400:
+    description: Bad request
+    schema:
+      type: string

@@ -1,0 +1,22 @@
+{
+  "FE": {
+    "address": "129.59.234.231"
+  },
+  "JM": {
+    "address": "129.59.234.231",
+    "wait_time": 0.1,
+    "scheduling_strategy": {
+      "best-fit": 1,
+      "first-fit": 0,
+      "first-fit-decreasing": 0,
+      "best-fit-decreasing": 0,
+      "no-scheduler": 0
+    }
+  },
+  "GM": {
+    "address": "129.59.234.231"
+  },
+  "DC": {
+    "address": "129.59.234.231"
+  }
+}

@@ -1,0 +1,7 @@
+FROM ubuntu:16.04
+
+COPY RESTfulSwarm /home/RESTfulSwarm
+
+WORKDIR /home/RESTfulSwarm/GlobalManager
+
+RUN chmod +x dependences.sh && ./dependences.sh

@@ -1,0 +1,43 @@
+{
+  "job_name": "job2",
+  "job_info": {
+    "network": {
+      "name": "kangNetwork",
+      "driver": "weaveworks/net-plugin:latest_release",
+      "subnet": "10.52.1.0/24"
+    },
+    "tasks": {
+      "job2_task1": {
+        "container_name": "job2_task1",
+        "node": "",
+        "image": "busybox",
+        "detach": true,
+        "command": "",
+        "req_cores": 1,
+        "cpuset_cpus": "",
+        "mem_limit": "10m",
+        "ports": {},
+        "volumes": {},
+        "environment": {},
+        "status": "Ready"
+      },
+      "job2_task2": {
+        "container_name": "job2_task2",
+        "node": "",
+        "image": "busybox",
+        "detach": true,
+        "command": "",
+        "req_cores": 1,
+        "cpuset_cpus": "",
+        "mem_limit": "30m",
+        "ports": {},
+        "volumes": {},
+        "environment": {},
+        "status": "Ready"
+      }
+    }
+  },
+  "status": "Ready",
+  "start_time": 0,
+  "end_time": 0
+}

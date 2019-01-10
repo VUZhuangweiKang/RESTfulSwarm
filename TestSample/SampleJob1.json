@@ -1,0 +1,44 @@
+{
+  "job_name": "job1",
+  "job_info": {
+    "network": {
+      "name": "kangNetwork",
+      "driver": "weaveworks/net-plugin:latest_release",
+      "subnet": "10.52.1.0/24"
+    },
+    "tasks": {
+      "job1_task1": {
+        "container_name": "job1_task1",
+        "node": "",
+        "image": "zhuangweikang/publisher",
+        "detach": true,
+        "command": "",
+        "req_cores": 2,
+        "cpuset_cpus": "",
+        "mem_limit": "10m",
+        "ports": {"3000/tcp": 3000},
+        "volumes": {},
+        "environment": {},
+        "status": "Ready"
+      },
+      "job1_task2": {
+        "container_name": "job1_task2",
+        "node": "",
+        "image": "zhuangweikang/subscriber",
+        "detach": true,
+        "command": "python SubscribeData.py -a 10.52.3.255 -p 3000",
+        "req_cores": 2,
+        "cpuset_cpus": "",
+        "mem_limit": "10m",
+        "ports": {},
+        "volumes": {},
+        "environment": {},
+        "status": "Ready"
+      }
+    }
+  },
+  "status": "Ready",
+  "start_time": 0,
+  "end_time": 0,
+  "session": 1
+}

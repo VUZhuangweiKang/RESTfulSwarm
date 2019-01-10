@@ -1,0 +1,6 @@
+[
+  {
+    "node": "kang7",
+    "containers": ["job1_task1", "job1_task2"]
+  }
+]

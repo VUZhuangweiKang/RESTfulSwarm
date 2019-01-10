@@ -1,0 +1,29 @@
+FROM ubuntu:16.04
+
+RUN apt-get update
+# Install Python
+RUN apt-get install -y python
+
+# Install pip
+RUN apt-get install -y python-pip python-dev build-essential
+RUN pip install --upgrade pip
+RUN pip install --upgrade virtualenv
+
+RUN wget https://github.com/zeromq/zeromq4-1/releases/download/v4.1.6/zeromq-4.1.6.tar.gz
+RUN tar xzvf zeromq-4.1.6.tar.gz
+RUN cd zeromq-4.1.6.tar.gz
+RUN apt-get install libpgm-dev
+RUN ./configure --with-pgm && make && make install
+RUN pip install --no-binary :all: pyzmq
+
+# Install app dependencies
+RUN pip install pyzmq
+
+WORKDIR /home
+
+COPY ./ZMQHelper.py ./
+COPY ./SamplePubSubWorker/PublishData.py ./
+
+CMD ["python", "./PublishData.py"]
+
+EXPOSE 3000

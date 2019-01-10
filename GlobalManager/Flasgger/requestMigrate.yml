@@ -1,0 +1,63 @@
+---
+parameters:
+  - name: migration_info
+    in: body
+    schema:
+      $ref: '#/definitions/MigrationInfo'
+
+definitions:
+  MigrationInfo:
+    type: object
+    properties:
+      job:
+        type: string
+      container:
+        type: string
+      from:
+        type: string
+        example: "10.0.0.1"
+      to:
+        type: string
+        example: "10.0.0.2"
+      info:
+        $ref: '#/definitions/TaskDetail'
+
+  TaskDetail:
+      type: object
+      properties:
+        "container_name":
+          type: string
+          example: "job1_task1"
+        "node":
+          type: string
+        "image":
+          type: string
+        "detach":
+          type: boolean
+        "command":
+          type: string
+        "cpu_count":
+          type: integer
+        "cpuset_cpus":
+          type: string
+        "mem_limit":
+          type: string
+          example: "10m"
+        "ports":
+          type: object
+          example: {"3000/tcp": 3000}
+        "volumes":
+          type: object
+          example: {}
+        "environment":
+          type: object
+          example: {}
+        "status":
+          type: string
+          enum: [Ready, Deployed, Down]
+
+responses:
+  200:
+    description: Container is migrating.
+  400:
+    description: Submitted migration information has error.
