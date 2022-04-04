@@ -1,6 +1,6 @@
 # RESTfulSwarm
 
-An environment for core simulation based on Docker Swarm
+This is repository is for the container orchestration platform used in the paper: [EXPPO: EXecution Performance Profiling and Optimization for CPS Co-simulation-as-a-Service](https://www.sciencedirect.com/science/article/abs/pii/S138376212100134X), accepted by 2020 IEEE 23rd International Symposium on Real-Time Distributed Computing (ISORC).
 
 ![Swarm](http://blog.pridybailo.com/wp-content/uploads/sites/2/2015/01/swar-q.png)
 
