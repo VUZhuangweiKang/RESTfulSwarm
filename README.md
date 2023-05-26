@@ -2,7 +2,18 @@
 
 This is repository is for the container orchestration platform used in the paper: [EXPPO: EXecution Performance Profiling and Optimization for CPS Co-simulation-as-a-Service](https://www.sciencedirect.com/science/article/abs/pii/S138376212100134X), accepted by *2020 IEEE 23rd International Symposium on Real-Time Distributed Computing (ISORC)*.
 
-![Swarm](http://blog.pridybailo.com/wp-content/uploads/sites/2/2015/01/swar-q.png)
+cite the paper
+```latex
+@article{barve2021exppo,
+  title={Exppo: Execution performance profiling and optimization for cps co-simulation-as-a-service},
+  author={Barve, Yogesh D and Neema, Himanshu and Kang, Zhuangwei and Vardhan, Harsh and Sun, Hongyang and Gokhale, Aniruddha},
+  journal={Journal of Systems Architecture},
+  volume={118},
+  pages={102189},
+  year={2021},
+  publisher={Elsevier}
+}
+```
 
 ## [Environment (Prerequisites)](https://github.com/doc-vu/RESTfulSwarm/blob/master/dependences.sh)
 
